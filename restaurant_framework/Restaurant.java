@@ -36,15 +36,48 @@ public class Restaurant{
         double iceCreamPrice = 2.00;
         double sodaPrice = 1.50;
 
-        while(true){ /* FIX WHILE CONDITION */
+        while(allowance >= 1.50){
             printAllowance(allowance);
             printMenu();
 
             input = scan.nextInt();
+            if(input == 1){  //PIZZA costs 2.50
+                if(allowance < pizzaPrice){
+                    printFailure("PIZZA"); 
+                }
+                else {
+                    allowance = allowance - pizzaPrice;
+                }
+
+            }
+
+            else if( input == 2){ //Ice_cream costs 2 dollars  
+                if(allowance < iceCreamPrice){  
+                    printFailure("Ice Cream");
+                }
+                else {
+                    allowance = allowance - iceCreamPrice; 
+                }
+
+            }   
+
+            else if( input == 3){ // SODA costs 1.50
+                if(allowance < sodaPrice){
+                    printFailure("SODA");
+                I}
+                else { 
+                    allowance = allowance - sodaPrice; 
+                }
+
+            }
+            
+            else{  
+                System.out.println(" eat healthy food like mcdonalds!") ;
+                break; 
+            }
             /**
              *
              * ENTER YOUR CODE HERE
-             *
              * HINTS:
              * printFailure("Soda"); -- prints "You do not have enough money remaining to purchase Soda"
              * printFailure("Ice Cream"); -- prints "You do not have enough money remaining to purchase Ice Cream"
